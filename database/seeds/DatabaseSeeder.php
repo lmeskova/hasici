@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         Model::unguard(true);
 
         $this->call(InsuranceCompaniesSeeder::class);
+        $this->call(FireExtinguishersSeeder::class);
+        
     }
 }
