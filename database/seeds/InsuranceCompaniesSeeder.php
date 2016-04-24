@@ -36,11 +36,6 @@ class InsuranceCompaniesSeeder extends Seeder
                 'name' => $row[1],
                 'code' => $row[0]
             ]);
-            
-            
-            
         }
-
-
     }
 }
