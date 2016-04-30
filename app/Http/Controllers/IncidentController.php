@@ -15,7 +15,7 @@ class IncidentController extends Controller
 {
 
 
-    public function index()
+    public function createNew()
     {
         $insuranceCompanies = InsuranceCompany::all();
         $industryTypes = IndustryType::all();

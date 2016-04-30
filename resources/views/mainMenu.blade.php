@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-           Details
+     Main Menu
 
         </div>
 
@@ -15,5 +15,3 @@
 
 
 @endsection
-
-

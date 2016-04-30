@@ -4,7 +4,7 @@
 @section('content')
 
 
-    <div class="panel panel-primary">
+    <div class="panel panel-info">
         <div class="panel-heading">
             <h1 class="text-center">Základné údaje o požiari - pridávanie dát</h1>
         </div>
@@ -28,8 +28,14 @@
             <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="date">
-                    <input type="time">
+                    <input type="date" value="<?php
+                    echo(date("Y-m-d"));
+                    ?>">
+                    <input type="time" value="<?php
+                    $date = new DateTime();
+                    $date->setTimezone(new DateTimeZone('Europe/Prague'));
+                    echo $date->format('H:i');
+                    ?>">
                 </p>
             </div>
         </div>
@@ -39,12 +45,27 @@
             <label class="col-sm-2 control-label">Deň a čas spozorovania</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="date">
-                    <input type="time">
+                    <input type="date" value="<?php
+                    echo(date("Y-m-d"));
+                    ?>">
+                    <input type="time" value="<?php
+                    $date = new DateTime();
+                    $date->setTimezone(new DateTimeZone('Europe/Prague'));
+                    echo $date->format('H:i');
+                    ?>">
                 </p>
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Obec</label>
+            <div class="col-sm-10">
+                <p class="form-control-static">
+                    <input type="text">
+
+                </p>
+            </div>
+        </div>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Adresa</label>
@@ -72,11 +93,9 @@
                             </label>
                         </div>
 
-
-
                         <p class="form-control-static">
 
-                            <select multiple class="form-control" name="insuranceCompanies[]" id="insurance" readonly>
+                            <select multiple class="form-control" name="insuranceCompanies[]" id="insurance" disabled>
                                 @foreach($insuranceCompanies as $company)
                                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                                 @endforeach
@@ -148,19 +167,19 @@
 
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Škoda</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">
-                    Priama <input type="number">
-                    <br><br>
-                    Následná <input type="number">
-                    <br><br>
-                    Uchránená hodnota <input type="number">
-
+            <label class="col-sm-2 control-label">Škoda (€)</label>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                <p class="form-control-static text-center">
+                    Priama: <input type="number" class="text-center"> Následná: <input type="number" class="text-center"> Uchránené hodnoty: <input type="number" class="text-center">
                 </p>
             </div>
+                </div>
         </div>
 
+        <div class="text-right">
+            <button type="button" class="btn btn-primary btn-lg">Detaily</button>
+        </div>
 
 <div class="text-right">
     <button type="button" class="btn btn-primary btn-lg">Uložiť záznam</button>
@@ -168,5 +187,14 @@
 </form>
 
     </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                @yield('detail')
+
+            </div>
+
+
+        </div>
 
 @endsection

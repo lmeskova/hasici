@@ -16,10 +16,11 @@ Route::get('/', function () {
 });
 
 */
-Route::get('/', [
-    'uses' => 'IncidentController@index'
-]);
+Route::get('/','MainMenuController@index');
 
+Route::get('/newIncident','IncidentController@createNew');
+
+Route::get('/details','IncidentDetailController@details');
 
 
 Route::get('/dummy', function () {
