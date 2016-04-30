@@ -9,10 +9,10 @@ class CreateInjuriesTable extends Migration {
 	{
 		Schema::create('injuries', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('injury_circumstances')->unsigned()->index();
-			$table->integer('injury_causes')->unsigned()->index();
-			$table->integer('injury_types')->unsigned()->index();
-			$table->integer('injury_categories')->unsigned()->index();
+			$table->integer('injury_circumstance_id')->unsigned()->index();
+			$table->integer('injury_cause_id')->unsigned()->index();
+			$table->integer('injury_type_id')->unsigned()->index();
+			$table->integer('injury_category_id')->unsigned()->index();
 			$table->integer('incident_id')->unsigned()->index();
 			$table->timestamps();
 		});

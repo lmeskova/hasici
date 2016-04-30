@@ -1,6 +1,7 @@
 <?php
 
-use App\InjuryCategories;
+
+use App\InjuryCategory;
 use Illuminate\Database\Seeder;
 
 class InjuryCategoriesSeeder extends Seeder
@@ -32,7 +33,7 @@ class InjuryCategoriesSeeder extends Seeder
 
             }
 
-            InjuryCategories::create([
+            InjuryCategory::create([
                 'name' => $row[1],
                 'code' => $row[0]
             ]);
